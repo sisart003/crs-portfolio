@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrishart | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    
+    <nav class="fixed w-screen bg-sky-100 py-6 flex justify-center items-center">
+        <ul class="flex">
+            <li class="mx-4 font-bold text-sky-900 hover:text-sky-400"><a href="#about">About</a></li>
+            <li class="mx-4 font-bold text-sky-900 hover:text-sky-600"><a href="#project">Projects</a></li>
+            <li class="mx-4 font-bold text-sky-900 hover:text-sky-600"><a href="#socials">Socials</a></li>
+        </ul>
+    </nav>
+    <header id="header" class="flex flex-col justify-center items-center h-screen w-screen bg-sky-100 text-sky-900 ">
+        <h1 class="text-8xl font-medium mb-8 sm:text-8xl">CHRISHART</h1>
+        <a href="./chris.pdf" target="_blank" class="bg-red-500 text-sky-100 font-medium px-8 py-2 mt-4 hover:bg-red-400">RESUME</a>
+    </header>
+
+    <section id="about" class="h-screen w-screen flex items-center justify-center p-8">
+        <div class="w-1/2 flex items-center justify-center">
+            <img src="./images/chris.jpg" class="rounded-full" alt="">
+        </div>
+        <div class="w-1/2 flex items-center justify-center flex-col mr-5 text-left">
+            <h1 class="font-bold text-4xl text-left mb-4">ABOUT ME</h1>
+            <p class="text-center">
+                I'm a Programmer, Computer Hobbyist and Gamer.
+                Knowledgeable in Computer Programming/ Web Development such as Javascript, PHP, APIs and Networking.
+                <br>Computer in General.
+            </p>
+        </div>
+    </section>
+
+    <section class="h-auto w-screen flex flex-col py-8">
+        <h1 class="h-1/6 font-bold text-4xl flex items-center justify-center">PROJECTS</h1>
+        <div class="w-full flex flex-wrap justify-around items-center">
+            <div class="w-1/4 mx-4 my-8 bg-sky-200 p-5">
+                <img src="./images/inventory.png" class="h-5/6 w-full" alt="">
+                <h2 class="text-center text-2xl pt-4 hover:text-sky-900""><a href="https://github.com/sisart003/lydia-inventory">PMS Inventory System</a></h2>
+            </div>
+
+            <div class="w-1/4 mx-4 my-8 bg-sky-200 p-5">
+                <img src="./images/lims.png" class="h-5/6 w-full" alt="">
+                <h2 class="text-center text-2xl pt-4 hover:text-sky-900""><a href="https://github.com/edong00/LIMS">LIMS Library System</a></h2>
+            </div>
+
+            <div class="w-1/4 mx-4 my-8 bg-sky-200 p-5">
+                <img src="./images/phpiggy.png" class="h-5/6 w-full" alt="">
+                <h2 class="text-center text-2xl pt-4 hover:text-sky-900""><a href="https://github.com/sisart003/phpiggy">PHPiggy (Project Course)</a></h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col justify-center items-center py-8 w-screen">
+        <h1 class="text-4xl font-bold mb-4">SOCIALS</h1>
+        <ul class="flex mb-4">
+            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://www.facebook.com/sisart003/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://www.instagram.com/sisisart003/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://twitter.com/iShart003" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://github.com/sisart003" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://www.linkedin.com/in/chrishart-estrada/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul>
+        <p><a href="https://codepen.io/sisart003" target="_blank" class="hover:text-sky-900"><i class="fa-brands fa-codepen"></i> Codepen</a> - For smaller Javascript Projects</p>
+    </section>
+
+    <footer class="py-8 bg-black w-screen">
+        <p class="text-sky-100 text-center ">&copy; <span class="getYear"></span></p>
+    </footer>
+
+    <script>
+        let ayaya = document.querySelector('.getYear');
+        let d = new Date();
+        ayaya.innerHTML = d.getFullYear();
+    </script>
+</body>
+</html>
