@@ -1,90 +1,285 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chrishart | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        html{
-            scroll-behavior: smooth;
+    <script>
+        tailwind.config = {
+          theme: {
+            screens: {
+                sm: '480px',
+                md: '768px',
+                lg: '976px',
+                xl: '1440px'
+            },
+            extend: {
+              colors: {
+                darkBlue: 'hsl(217, 28%, 15%)',
+                darkBlue1: 'hsl(218, 28%, 13%)',
+                darkBlue2: 'hsl(216, 53%, 9%)',
+                darkBlue3: 'hsl(219, 30%, 18%)',
+                accentCyan: 'hsl(176, 68%, 64%)',
+                accentBlue : 'hsl(198, 60%, 0%)',
+              },
+            }
+          }
         }
-    </style>
+      </script>
+      <style>
+        /* Hamburger Menu */
+        .hamburger{
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom{
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            top: 0;
+            left: 0;
+            background: #fff;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+
+        .hamburger-middle{
+            transform: translateY(7px);
+        }
+
+        .hamburger-bottom{
+            transform: translateY(14px);
+        }
+
+        .open{
+            transform: rotate(90deg);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle{
+            display: none;
+        }
+
+        .open .hamburger-bottom{
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+      </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden bg-darkBlue text-white">
     
-    <nav class="fixed w-screen bg-sky-100 py-6 flex justify-center items-center">
-        <ul class="flex">
-            <li class="mx-4 font-bold text-sky-900 hover:text-sky-600"><a href="#about">About</a></li>
-            <li class="mx-4 font-bold text-sky-900 hover:text-sky-600"><a href="#project">Projects</a></li>
-            <li class="mx-4 font-bold text-sky-900 hover:text-sky-600"><a href="#socials">Socials</a></li>
-        </ul>
-    </nav>
-    <header id="header" class="flex flex-col justify-center items-center h-screen w-screen bg-sky-100 text-sky-900 ">
-        <h1 class="text-6xl font-medium mb-8 lg:text-8xl">CHRISHART</h1>
-        <a href="./chris.pdf" target="_blank" class="bg-red-500 text-sky-100 font-medium px-8 py-2 mt-4 hover:bg-red-400">RESUME</a>
+    <section id="hero">
+        <div class="fixed w-screen bg-darkBlue mx-auto px-8 flex justify-between items-center z-40">
+            <nav class="py-6 px-4 flex justify-between items-center w-full">
+                <!-- Logo -->
+                <img src="images/chris-logo.png" alt="" class="h-14 invert">
+                <!-- Menu -->
+                <div class="hidden md:flex md:space-x-8 text-white">
+                    <div class="group">
+                        <a href="#about">About</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+                    <div class="group">
+                        <a href="#projects">Projects</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+                    <div class="group">
+                        <a href="#services">Services</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+                    <div class="group">
+                        <a href="#footer">Contacts</a>
+                        <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    </div>
+                </div>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" type="button" class="z-40 block hamburger md:hidden focus:outline-none">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="menu" class="absolute hidden p-6 rounded-lg bg-darkBlue2 left-6 right-6 top-20 z-100">
+                <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm">
+                    <a href="#about" class="w-full text-center hover:text-accentCyan">About</a>
+                    <a href="#projects" class="w-full text-center hover:text-accentCyan">Projects</a>
+                    <a href="#services" class="w-full text-center hover:text-accentCyan">Services</a>
+                    <a href="#footer" class="w-full text-center hover:text-accentCyan">Contacts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="py-16 flex flex-col-reverse justify-center items-center md:flex-row md:h-screen md:py-0">
+            <div class="flex flex-col justify-center items-center w-full space-y-4 text-white">
+                <h2 class="text-2xl font-semibold lg:text-4xl">Hello, I'm</h2>
+                <h1 class="text-4xl font-semibold lg:text-6xl">Chrishart Estrada</h1>
+                <h3 class="px-6 py-2 bg-white rounded-full border-2 text-black font-semibold cursor-pointer hover:text-white hover:border-2 hover:border-white hover:bg-darkBlue"><a href="#resume">Resume</a></h3>
+            </div>
+            
+            <div class="w-full">
+                <img src="images/bg-header.png" alt="">
+            </div>
+        </div>
     </header>
 
-    <section id="about" class="w-screen flex flex-col items-center justify-center p-8">
-        <div class="w-3/5 flex items-center justify-center py-4 md:w-1/4">
-            <img src="./images/chris.jpg" class="rounded-full" alt="">
-        </div>
-        <div class="w-4/5 flex items-center justify-center flex-col mr-5">
-            <h1 class="font-bold text-4xl text-left mb-4 md:float-left">ABOUT ME</h1>
-            <p class="text-center">
-                Hello, I'm Chrishart Estrada, a passionate computer programmer with a deep love for technology and a flair for writing elegant code. I thrive in the world of ones and zeros, where creativity meets logic to build solutions that power the digital age.
-                <br><br>
-                In addition to my technical skills, I also value collaboration and effective communication. I understand the importance of translating complex technical concepts into plain language and working closely with cross-functional teams to deliver outstanding results.
-                <br><br>
-                This "About Me" section is a glimpse into my professional world, but there's more to discover. When I'm not immersed in code, you can find me on competitive online games like dota2, valorant and CS2 or sometimes in Chess Community I'm always open to new challenges and opportunities to learn, create, and grow.
-                <br><br>
-                If you're interested in connecting, collaborating, or simply discussing the exciting realm of programming, don't hesitate to reach out. Let's write the next line of code together!
-
-            </p>
-        </div>
-    </section>
-
-    <section class="h-auto w-screen flex flex-col py-8">
-        <h1 class="h-1/6 font-bold text-4xl flex items-center justify-center">PROJECTS</h1>
-        <div class="w-full flex flex-wrap flex-col justify-around items-center lg:flex-row">
-            <div class="w-1/3 mx-4 my-8 bg-sky-200 p-5 lg:w-1/4">
-                <img src="./images/inventory.png" class="h-5/6 w-full" alt="">
-                <h2 class="text-center text-2xl pt-4 hover:text-sky-900""><a href="https://github.com/sisart003/lydia-inventory" target="_blank">PMS Inventory System</a></h2>
+    <section id="about">
+        <div class="bg-darkBlue1 flex flex-col px-12 py-16 items-center justify-center lg:flex-row lg:justify-between">
+            <div class="w-40 flex items-center justify-center py-4 lg:w-1/2">
+                <img src="./images/chris.jpg" class="rounded-full" alt="">
             </div>
-
-            <div class="w-1/3 mx-4 my-8 bg-sky-200 p-5 lg:w-1/4"">
-                <img src="./images/lims.png" class="h-5/6 w-full" alt="">
-                <h2 class="text-center text-2xl pt-4 hover:text-sky-900""><a href="https://github.com/edong00/LIMS" target="_blank">LIMS Library System</a></h2>
-            </div>
-
-            <div class="w-1/3 mx-4 my-8 bg-sky-200 p-5 lg:w-1/4"">
-                <img src="./images/phpiggy.png" class="h-5/6 w-full" alt="">
-                <h2 class="text-center text-2xl pt-4 hover:text-sky-900""><a href="https://github.com/sisart003/phpiggy" target="_blank">PHPiggy (Project Course)</a></h2>
+            <div class="w-4/5 flex items-center justify-center flex-col mr-5 lg:w-1/2">
+                <h1 class="font-bold text-4xl text-left mb-4 md:float-left">ABOUT ME</h1>
+                <p class="text-center md:text-xl">
+                    Hello, I'm Chrishart Estrada, a passionate computer programmer with a deep love for technology and a flair for writing elegant code. I thrive in the world of ones and zeros, where creativity meets logic to build solutions that power the digital age.
+                    <br><br>
+                    In addition to my technical skills, I also value collaboration and effective communication. I understand the importance of translating complex technical concepts into plain language and working closely with cross-functional teams to deliver outstanding results.
+                    <br><br>
+                    This "About Me" section is a glimpse into my professional world, but there's more to discover. When I'm not immersed in code, you can find me on competitive online games I'm always open to new challenges and opportunities to learn, create, and grow.
+                    <br><br>
+                    If you're interested in connecting, collaborating, or simply discussing the exciting realm of programming, don't hesitate to reach out. Let's write the next line of code together!
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="flex flex-col justify-center items-center py-8 w-screen">
-        <h1 class="text-4xl font-bold mb-4">SOCIALS</h1>
-        <ul class="flex mb-4">
-            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://www.facebook.com/sisart003/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
-            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://www.instagram.com/sisisart003/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://twitter.com/iShart003" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://github.com/sisart003" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-            <li class="mx-4 text-2xl hover:text-sky-600"><a href="https://www.linkedin.com/in/chrishart-estrada/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-        </ul>
-        <p><a href="https://codepen.io/sisart003" target="_blank" class="hover:text-sky-900"><i class="fa-brands fa-codepen"></i> Codepen</a> &mdash; For Smaller Javascript Projects</p>
+    <section id="projects">
+        <div class="py-16 px-8 flex flex-col justify-center items-center">
+            <h1 class="text-4xl text-center">
+                Projects
+            </h1>
+            <div class="flex flex-col justify-center items-center mt-8 space-y-16 md:flex-row md:space-x-8 md:justify-between md:space-y-0">
+                <div>
+                    <div class="relative group">
+                        <a href="https://github.com/sisart003/lydia-inventory" target="_blank" class="hidden absolute text-center bg-darkBlue2 z-10 w-full px-8 py-6 left-0 bottom-0 group-hover:block">Source Code</a>
+                        <img src="images/inventory.png" alt="" class="group-hover:grayscale group-hover:opacity-80 h-full">
+                        
+                    </div>
+                    <p class="md:text-2xl">Inventory System</p>
+                </div>
+    
+                <div>
+                    <div class="relative group">
+                        <a href="https://github.com/sisart003/phpiggy" target="_blank" class="hidden text-center bg-darkBlue2 z-10 px-8 py-6 absolute left-0 bottom-0 w-full group-hover:block">Source Code</a>
+                        <img src="images/phpiggy.png" alt="" class="group-hover:grayscale group-hover:opacity-80 h-full">
+                    </div>
+                    <p class="md:text-2xl">PHPiggy (course project)</p>
+                </div>
+    
+                <div>
+                    <div class="relative group">
+                        <a href="https://github.com/edong00/LIMS" target="_blank" class="hidden text-center bg-darkBlue2 z-10 px-8 py-6 absolute left-0 bottom-0 w-full group-hover:block">Source Code</a>
+                        <img src="images/lims.png" alt="" class="group-hover:grayscale group-hover:opacity-80">
+                    </div>
+                    <p class="md:text-2xl">Library Inventory Management System</p>
+                </div>
+            </div>
+            
+        </div>
     </section>
 
-    <footer class="py-8 bg-black w-screen">
-        <p class="text-sky-100 text-center ">&copy; <span class="getYear"></span></p>
+    <section id="resume">
+        <div class="flex flex-col justify-center items-center py-16 bg-darkBlue1">
+            <h1 class="text-4xl mb-16">My Resume</h1>
+            <div class="flex flex-col justify-center items-center space-y-8 md:flex-row md:space-y-0">
+                <div class="flex flex-col px-4 md:w-1/2">
+                    <h1 class="text-xl mb-4">Education</h1>
+                    <div class="px-8 py-4 bg-darkBlue2 text-md">
+                        <p><i class="fa-solid fa-calendar"></i> &nbsp;&nbsp; June 15, 2013 - May 30 2017</p>
+                        <p><i class="fa-solid fa-school"></i> &nbsp;&nbsp;Access Computer College</p>
+                        <p><i class="fa-solid fa-location-dot"></i> &nbsp;&nbsp; Altan, Km21 Quirino Highway Novaliches, Novaliches, Quezon City, 1118 Metro Manila</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col px-4 md:w-1/2">
+                    <h1 class="text-xl mb-4">Experience</h1>
+                    <div class="px-8 py-4 bg-darkBlue2 text-sm">
+                        <p><i class="fa-solid fa-calendar"></i> &nbsp;&nbsp; Jan 8, 2020 - April 8, 2020</p>
+                        <p><i class="fa-solid fa-location-dot"></i> &nbsp;&nbsp; Saint Joseph Avenue, Tala, Barangay 186, Caloocan, 1427 Metro Manila</p>
+                        <br>
+                        <p class="ml-4 text-sm"><i class="fa-solid fa-caret-right"></i> Install, Configure and Maintain Network communications</p>
+                        <p class="ml-4 text-sm"><i class="fa-solid fa-caret-right"></i> Performs basic troubleshooting of a variety of Computer issues.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xl bg-gray-600 px-6 py-2 mt-8 hover:bg-darkBlue2"><a href="chris.pdf" target="_blank"><i class="fa-solid fa-download"></i> Download my Resume</a></p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="flex flex-col justify-center items-center py-16">
+            <h1 class="text-4xl">My Services</h1>
+            <div class="flex flex-col justify-center items-center mt-8 space-y-8 md:space-y-0 md:flex-row md:space-x-8">
+                <div class="flex flex-col justify-center items-center text-center text-xl">
+                    <!-- <a href="https://www.flaticon.com/free-icons/designer" title="designer icons">Designer icons created by Flat Icons - Flaticon</a> -->
+                    <img src="images/web-design.png" alt="">
+                    <p>Web Development</p>
+                </div>
+                <div class="flex flex-col justify-center items-center text-center text-xl">
+                    <!-- <a href="https://www.flaticon.com/free-icons/designer" title="designer icons">Designer icons created by Flat Icons - Flaticon</a> -->
+                    <img src="images/assemble.png" alt="">
+                    <p>Troubleshoot</p>
+                </div>
+                <div class="flex flex-col justify-center items-center text-center text-xl">
+                    <!-- <a href="https://www.flaticon.com/free-icons/designer" title="designer icons">Designer icons created by Flat Icons - Flaticon</a> -->
+                    <img src="images/lan-equipment.png" alt="">
+                    <p>Computer Network</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="py-16 bg-darkBlue3">
+        <h1 class="text-center text-4xl mb-8">Get in touch</h1>
+        <div class="flex flex-col justify-center items-center space-y-8 text-center md:flex-row md:space-y-0 md:space-x-8 md:justify-evenly md:px-4">
+            <div class="flex flex-col">
+                <p><i class="fa-solid fa-phone"></i> +63912-4213-460</p>
+                <p><i class="fa-solid fa-at"></i> chrishart.estrada@gmail.com</p>
+            </div>
+            <div class="flex justify-center items-center space-x-8 text-2xl">
+                <div><a href="https://www.facebook.com/sisart003/" target="_blank" class="hover:text-accentCyan"><i class="fa-brands fa-facebook"></i></a></div>
+                <div><a href="https://www.instagram.com/sisisart003/" class="hover:text-accentCyan"><i class="fa-brands fa-instagram"></i></a></div>
+                <div><a href="https://twitter.com/iShart003" class="hover:text-accentCyan"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div><a href="https://github.com/sisart003" class="hover:text-accentCyan"><i class="fa-brands fa-github"></i></a></div>
+                <div><a href="https://www.linkedin.com/in/chrishart-estrada/" class="hover:text-accentCyan"><i class="fa-brands fa-linkedin"></i></a></div>
+            </div>
+            <div>
+                <p class="font-bold">&copy; <span class="getYear"></span> Chrishart. All Rights Reserved</p>
+            </div>
+            
+        </div>
     </footer>
 
     <script>
         let ayaya = document.querySelector('.getYear');
         let d = new Date();
         ayaya.innerHTML = d.getFullYear();
+
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        btn.addEventListener('click', navToggle);
+
+        // Toggle Mobile Menu
+        function navToggle(){
+            btn.classList.toggle('open');
+            menu.classList.toggle('flex');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
